@@ -9,3 +9,7 @@ output "bucket_name" {
 output "cloudfront_domain" {
     value = module.cdn.cloudfront_domain
 }
+
+output "cloudfront_hosted_zone_id" {
+  value = module.cdn.cloudfront_hosted_zone_id
+}
