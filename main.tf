@@ -9,6 +9,6 @@ module "cdn" {
 
     domain_aliases = concat(var.domain, var.domain_aliases)
     certificate_arn = var.certificate_arn
-    cloudfront_access_identity_path = bucket.cloudfront_access_identity_path
-    s3_bucket_regional_name = bucket.s3_bucket_regional_name
+    cloudfront_access_identity_path = module.bucket.cloudfront_access_identity_path
+    s3_bucket_regional_name = module.bucket.s3_bucket_regional_name
 }

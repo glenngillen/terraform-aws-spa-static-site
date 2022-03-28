@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "oai_policy_document" {
 
   statement {
     actions   = ["s3:ListBucket"]
-    resources = [aws_s3_bucket.this-dot-com.arn]
+    resources = [aws_s3_bucket.this.arn]
 
     principals {
       type        = "AWS"
