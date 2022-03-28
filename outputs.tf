@@ -1,9 +1,9 @@
 output "s3_bucket_regional_name" {
-    value = module.s3_spa_static_site.s3_bucket_regional_name
+    value = module.bucket.s3_bucket_regional_name
 }
 
 output "bucket_name" {
-    value = module.s3_spa_static_site.bucket_name
+    value = module.bucket.bucket_name
 }
 
 output "cloudfront_domain" {
