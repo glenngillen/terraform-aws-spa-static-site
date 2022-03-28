@@ -1,29 +1,12 @@
-data "aws_iam_policy_document" "glenngillen_cloudfront_oai_policy_document" {
-  statement {
-    actions   = ["s3:GetObject"]
-    resources = ["${aws_s3_bucket.glenngillen-dot-com.arn}/*"]
-
-    principals {
-      type        = "AWS"
-      identifiers = [aws_cloudfront_origin_access_identity.default.iam_arn]
-    }
-  }
-
-  statement {
-    actions   = ["s3:ListBucket"]
-    resources = [aws_s3_bucket.glenngillen-dot-com.arn]
-
-    principals {
-      type        = "AWS"
-      identifiers = [aws_cloudfront_origin_access_identity.default.iam_arn]
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4"
     }
   }
 }
 
-resource "aws_s3_bucket_policy" "glenngillen_cloudfront_oai_policy" {
-  bucket = aws_s3_bucket.glenngillen-dot-com.id
-  policy = data.aws_iam_policy_document.glenngillen_cloudfront_oai_policy_document.json
-}
 resource "aws_cloudfront_distribution" "this" {
   origin {
     domain_name = var.s3_bucket_regional_name
