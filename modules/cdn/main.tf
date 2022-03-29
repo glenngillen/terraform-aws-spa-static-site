@@ -11,9 +11,9 @@ resource "aws_cloudfront_distribution" "this" {
   dynamic "logging_config" {
     for_each = var.logging_enabled == true ? toset([var.logging_config]) : toset([])
     content {
-      include_cookies = logging_config.include_cookies
-      bucket          = logging_config.bucket
-      prefix          = logging_config.prefix
+      include_cookies = logging_config.value.include_cookies
+      bucket          = logging_config.value.bucket
+      prefix          = logging_config.value.prefix
     }
   }
   origin {
