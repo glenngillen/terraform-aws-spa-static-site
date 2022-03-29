@@ -13,3 +13,17 @@ variable "certificate_arn" {
 variable "cloudfront_access_identity_path" {
     type = string
 }
+
+variable "logging_enabled" {
+    type = boolean
+    value = false
+}
+
+variable "logging_config" {
+    type = object({
+      include_cookies = boolean
+      bucket          = string
+      prefix          = string
+    })
+    value = null
+}

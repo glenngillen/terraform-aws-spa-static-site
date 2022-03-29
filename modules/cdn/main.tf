@@ -8,6 +8,14 @@ terraform {
 }
 
 resource "aws_cloudfront_distribution" "this" {
+  dynamic "logging_config" {
+    for_each = var.logging_enabled == true ? toset([var.logging_config]) : toset([])
+    content {
+      include_cookies = logging_config.include_cookies
+      bucket          = logging_config.bucket
+      prefix          = logging_config.prefix
+    }
+  }
   origin {
     domain_name = var.s3_bucket_regional_name
     origin_id   = "s3-website"
