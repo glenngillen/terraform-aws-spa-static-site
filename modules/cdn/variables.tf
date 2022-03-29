@@ -21,7 +21,7 @@ variable "logging_enabled" {
 
 variable "logging_config" {
     type = object({
-      include_cookies = boolean
+      include_cookies = bool
       bucket          = string
       prefix          = string
     })
