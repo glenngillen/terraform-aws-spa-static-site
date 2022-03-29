@@ -15,7 +15,7 @@ variable "cloudfront_access_identity_path" {
 }
 
 variable "logging_enabled" {
-    type = boolean
+    type = bool
     default = false
 }
 

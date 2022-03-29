@@ -9,7 +9,7 @@ variable "certificate_arn" {
 }
 
 variable "logging_enabled" {
-    type = boolean
+    type = bool
     default = false
 }
 
