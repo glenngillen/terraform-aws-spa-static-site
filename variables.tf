@@ -10,7 +10,7 @@ variable "certificate_arn" {
 
 variable "logging_enabled" {
     type = boolean
-    value = false
+    default = false
 }
 
 variable "logging_config" {
@@ -19,5 +19,5 @@ variable "logging_config" {
       bucket          = string
       prefix          = string
     })
-    value = null
+    default = null
 }
