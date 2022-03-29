@@ -7,3 +7,17 @@ variable "domain_aliases" {
 variable "certificate_arn" {
     type = string
 }
+
+variable "logging_enabled" {
+    type = boolean
+    value = false
+}
+
+variable "logging_config" {
+    type = object({
+      include_cookies = boolean
+      bucket          = string
+      prefix          = string
+    })
+    value = null
+}

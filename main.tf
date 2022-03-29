@@ -11,4 +11,6 @@ module "cdn" {
     certificate_arn = var.certificate_arn
     cloudfront_access_identity_path = module.bucket.cloudfront_access_identity_path
     s3_bucket_regional_name = module.bucket.s3_bucket_regional_name
+    logging_enabled = var.logging_enabled
+    logging_config = var.logging_config
 }
